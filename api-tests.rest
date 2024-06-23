@@ -4,3 +4,27 @@ Content-Type: application/json
 
 ### Get Single Contact
 GET http://localhost:3000/contacts/6668ecec26437cda8cd0d671
+
+### Create a New Contact
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Inserted",
+    "lastName": "Albancando Robles",
+    "email": "Inserted@gmail.com",
+    "favoriteColor": "aqua",
+    "birthday": "09-09-1996"
+}
+
+### Update Contact
+PUT http://localhost:3000/contacts/6668ecec26437cda8cd0d671
+Content-Type: application/json
+
+{
+    "firstName": "Jose David",
+    "lastName": "Albancando Robles",
+    "email": "actualizado2@gmail.com",
+    "favoriteColor": "aqua",
+    "birthday": "09-09-1996"
+}

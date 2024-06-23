@@ -5,6 +5,7 @@
 // this allows me to handle routes
 
 const router = require("express").Router();
+router.use("/", require("./swagger"));
 
 // anonumous funciton with req and res
 router.get("/", (req, res) => {
