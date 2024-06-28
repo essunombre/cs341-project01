@@ -9,27 +9,34 @@ const userRouter = require("./routes/users");
 const port = process.env.PORT || 3000;
 
 // node empieza en /, se va a routes
-app.use(bodyParser.json());
-
-// routes will work across sites
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, x-Requested-With, Content-Type, Accept, Z-Key"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
-  );
-  next();
-});
+app
+  .use(bodyParser.json())
+  // routes will work across sites
+  .use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Origin, x-Requested-With, Content-Type, Accept, Z-Key"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, DELETE, OPTIONS"
+    );
+    next();
+  });
 
 // Routes
 app.use("/", require("./routes"));
 
 // con use, yo le asigno como quiero que vaya el path
 app.use("/users", userRouter);
+
+process.on("uncaughtException", (err, origin) => {
+  console.log(
+    process.stderr.fd,
+    `Caught exception: ${err}\n` + `Exception origin: ${origin}`
+  );
+});
 
 mongodb.initDb((err) => {
   if (err) {
