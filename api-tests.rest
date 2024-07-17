@@ -1,6 +1,7 @@
-### Get All Contacts
+### GET
 GET http://localhost:3000/contacts
 Content-Type: application/json
+###
 
 ### Get Single Contact
 GET http://localhost:3000/contacts/6668ecec26437cda8cd0d671
@@ -28,3 +29,7 @@ Content-Type: application/json
     "favoriteColor": "aqua",
     "birthday": "09-09-1996"
 }
+
+### Update Contact
+DELETE http://localhost:3000/contacts/6677ab871af219baf69c0e8c
+Content-Type: application/json

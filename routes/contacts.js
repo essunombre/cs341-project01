@@ -9,7 +9,7 @@ router.get("/", contactsController.getAll);
 router.get("/:id", contactsController.getSingle);
 
 // Create
-router.post("/", validation.saveContact, contactsController.createContact);
+router.post("/", contactsController.createContact);
 
 // Update
 router.put("/:id", validation.saveContact, contactsController.updateContact);
